@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#nav {
+    background-color: rgb(114, 2, 2);
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px 50px;
+    border-radius: 60px;
+    margin: 10px 20px;
+    /* border: 2px solid red; */
+}
+
+.menu-nav {
+    flex: 1;
+}
+
+.menu-nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.menu-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.image-nav {
+    flex: 0 0 auto;
+}
