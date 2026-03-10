@@ -49,6 +49,12 @@ body {
 
 .image-nav {
     flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.image-nav a {
+    text-decoration: none;
+    color: white;
 }
 
 #main {
