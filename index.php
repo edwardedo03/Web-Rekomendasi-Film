@@ -2,13 +2,32 @@
     include("connect_db.php");
 
     function get_film_for_home($conn) {
-        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies LIMIT 50");
+        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies LIMIT 54");
         
         if(mysqli_num_rows($query) > 0) {
             return $query;
         } else {
             return "Empty";
         }        
+    }
+
+    function get_film_for_recommendation($conn) {
+        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies ORDER BY RAND() LIMIT 10");
+        
+        if(mysqli_num_rows($query) > 0) {
+            return $query;
+        } else {
+            return "Empty";
+        }        
+    }
+
+    function cleaning_genre($row) {
+        $genre_clean = $row['genre'];
+        $items = array('[', ']', "'");
+        $genre_clean = str_replace($items, "", $genre_clean);
+        $genre_clean = str_replace(",", " •", $genre_clean);
+
+        return $genre_clean;
     }
 
 
@@ -42,15 +61,31 @@
     </nav>
 
     <section id="main">
-        <h3>RECOMMENDATION</h3>
+        <h3>RANDOM RECOMMENDATION</h3>
         <div class="marquee-main-container">
             <!-- nanti tambahin code php supaya otomatis muncul, ga satu satu nambahin foto-->
-            <marquee scrollamount="7" behavior="scroll" direction="left">
-                <div class="marquee-items">
-                    <img src="https://plus.unsplash.com/premium_photo-1673448391005-d65e815bd026?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90b3xlbnwwfHwwfHx8MA%3D%3D" alt="">
-                    <img src="https://plus.unsplash.com/premium_photo-1673448391005-d65e815bd026?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90b3xlbnwwfHwwfHx8MA%3D%3D" alt="">
-                </div>
-            </marquee>
+            <div class="marquee">
+
+                <?php
+                    $result = get_film_for_recommendation($conn);
+
+                    while($row = mysqli_fetch_assoc($result)) { 
+
+                ?>
+                
+                <a href="">
+                    <div class="image-wrapper">
+                        <img src="<?php echo $row['image_url']?>" alt="">
+                        <div class="image-text">
+                            <p><?php echo $row['title']?></p>
+                            <p><?php echo cleaning_genre($row)?></p>
+                        </div>
+                    </div>
+                </a>
+            
+                <?php } ?>
+
+            </div>
         </div>
     </section>
 
@@ -62,10 +97,6 @@
                 
                 while ($row = mysqli_fetch_assoc($result)) {
 
-                    $genre_clean = $row['genre'];
-                    $items = array('[', ']', "'");
-                    $genre_clean = str_replace($items, "", $genre_clean);
-                    $genre_clean = str_replace(",", " •", $genre_clean);
             ?>
 
             <div class="movies-card">
@@ -74,13 +105,12 @@
                 </a>
                 <div class="movie-info">
                     <a href=""><p class="movie-title"><?php echo $row['title']?></p></a>
-                    <p><?php echo $genre_clean ?></p>
+                    <p class="movie-genre"><?php echo cleaning_genre($row) ?></p>
                     <p>⭐ <?php echo $row['vote_average'] ?></p>
                 </div>
             </div>
 
             <?php } ?>
-
         </div>
     </section>
 
