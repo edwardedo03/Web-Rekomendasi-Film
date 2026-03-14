@@ -12,7 +12,7 @@
     }
 
     function get_film_for_recommendation($conn) {
-        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies ORDER BY RAND() LIMIT 10");
+        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies WHERE vote_average > 8.0 ORDER BY RAND() LIMIT 10");
         
         if(mysqli_num_rows($query) > 0) {
             return $query;
@@ -42,26 +42,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="side-nav-button">
+        <label class="side-nav-button">☰</label>
+    </div>
+
+    <div class="side-navbar">
+        <ul>
+            <li><a href="#main">Home</a></li>
+            <li><a href="#main">Genre</a></li>
+        </ul>
+    </div>
+
     <nav id="nav">
-        <div class="image-nav">
-            <a href="index.php"><img src="assets/image/logo-remove-bg.png" width="150px" alt="Film-Holic"></a>
+        <div></div>
+        
+        <div class="image-logo">
+            <a href="index.php"><img src="assets/image/logo-remove-bg.png" width="180px" alt="Film-Holic"></a>
         </div>
 
-        <div class="menu-nav">
-            <ul>
-                <li><a href="#main">Home</a></li>
-                <li><a href="">Genre</a></li>
-                <li><a href="">About</a></li>
-            </ul>
-        </div>
-
-        <div class="image-nav">
+        <div class="image-search">
             <img src="assets/icon/search.png" alt="search-logo">
         </div>
     </nav>
 
     <section id="main">
-        <h3>RANDOM RECOMMENDATION</h3>
+        <h3>TOP MOVIES</h3>
         <div class="marquee-main-container">
             <!-- nanti tambahin code php supaya otomatis muncul, ga satu satu nambahin foto-->
             <div class="marquee">
@@ -79,6 +84,7 @@
                         <div class="image-text">
                             <p><?php echo $row['title']?></p>
                             <p><?php echo cleaning_genre($row)?></p>
+                            <p>⭐ <?php echo $row['vote_average']?></p>
                         </div>
                     </div>
                 </a>
