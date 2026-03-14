@@ -14,7 +14,7 @@ body {
 .side-navbar {
     position: fixed;
     top: 0;
-    left: -150px;
+    left: -155px;
     width: 200px;
     z-index: 1500;
     height: 100%;
@@ -37,6 +37,7 @@ body {
     font-size: 25px;
     color: white;
     pointer-events: none;
+    transition: all ease 0.3s;
 }
 
 .side-navbar:hover {
@@ -44,12 +45,24 @@ body {
     background-color: rgb(114, 2, 2);
 }
 
-.side-navbar ul {
+.side-navbar:hover .side-nav-button {
+    color: black;
+    font-weight: bolder;
+}
+
+.side-navbar-ul {
     margin-left: 23px;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+    opacity: 0%;
+    transition: all ease-in-out 0.3s;
+}
+
+.side-navbar:hover .side-navbar-ul {
+    opacity: 100%;
+    transition: all ease-in-out 0.6s;
 }
 
 .side-navbar a {
@@ -58,8 +71,72 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-size: 20px;
+    transition: all ease 0.3s;
 }
 
+/* .side-navbar li {
+    transition: all ease 0.3s;
+}
+
+.side-navbar li:hover {
+    transform: scale(1.2);
+} */
+
+.side-navbar-ul > li:hover > a {
+    color: rgb(0, 0, 0);
+}
+
+.nav-genre {
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    left: 0px;
+    top: 10px;
+    width: 100px;
+    max-height: 0px;
+    padding-left: 10px;
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    list-style: none;
+
+    opacity: 0%;
+    transition: all ease 0.3s;
+    pointer-events: none;
+    transform: translateY(-20px);
+    /* border: 1px solid white; */
+}
+
+.nav-genre:hover .dropdown {
+    max-height: 500px;
+    display: flex;
+    opacity: 100%;
+    pointer-events: auto;
+    transform: translateY(0px);
+    margin-bottom: 10px;
+}
+
+.dropdown li:hover {
+    transform: translateX(5px);
+}
+
+.dropdown li a {
+    overflow: hidden;
+    font-size: medium;
+    text-decoration: none;
+    transition: all ease 0.3s;
+}
+
+.dropdown li:hover a{
+    color: rgb(0, 0, 0);
+}
 
 #nav {
     position: sticky;

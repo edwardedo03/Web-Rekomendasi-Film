@@ -42,14 +42,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="side-nav-button">
-        <label class="side-nav-button">☰</label>
-    </div>
-
     <div class="side-navbar">
-        <ul>
+        <label class="side-nav-button">☰</label>
+        <ul class="side-navbar-ul">
             <li><a href="#main">Home</a></li>
-            <li><a href="#main">Genre</a></li>
+            <li class="nav-genre">
+                <a href="#main">Genre</a>
+
+                <ul class="dropdown">
+                    <li><a href="">• Action</a></li>
+                    <li><a href="">• Adventure</a></li>
+                    <li><a href="">• Sci-Fi</a></li>
+                    <li><a href="">• Crime</a></li>
+                    <li><a href="">• Thriller</a></li>
+                    <li><a href="">• Horror</a></li>
+                    <li><a href="">• Comedy</a></li>
+                    <li><a href="">• Family</a></li>
+                </ul>
+            </li>
+            <li><a href="#second-section">About</a></li>
+            <li><a href="#main">Favorite</a></li>
+            <li><a href="#main">Account</a></li>
         </ul>
     </div>
 
