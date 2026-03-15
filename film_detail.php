@@ -84,7 +84,7 @@
                 <p><?php echo cleaning_genre($film) ?></p>
                 <p>⭐ <?php echo $film['vote_average'] ?></p>
                 <p><?php echo $film['release_date'] ?></p>
-                <p><?php echo $film['overview'] ?></p>
+                <p class="film-overview"><?php echo $film['overview'] ?></p>
             </div>
         </div>
 

@@ -42,11 +42,11 @@ body {
 
 .side-navbar:hover {
     left: 0;
-    background-color: rgb(114, 2, 2);
+    background-color: rgb(103, 2, 2);
 }
 
 .side-navbar:hover .side-nav-button {
-    color: yellow;
+    color: rgb(255, 182, 148);
     font-weight: bolder;
 }
 
@@ -83,7 +83,7 @@ body {
 } */
 
 .side-navbar-ul > li:hover > a {
-    color: yellow;
+    color: rgb(255, 182, 148);
 }
 
 .nav-genre {
@@ -139,7 +139,7 @@ body {
 }
 
 .dropdown li:hover a{
-    color: yellow;
+    color: rgb(255, 182, 148);
 }
 
 #nav {

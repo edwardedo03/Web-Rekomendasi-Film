@@ -30,6 +30,10 @@ body {
 }
 
 .info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
@@ -39,6 +43,11 @@ body {
     gap: 20px;
     /* border: 2px solid red; */
     padding: 10px;
+}
+
+.film-overview {
+    text-align: justify;
+    font-weight: 400;
 }
 
 .recommendation-film {
