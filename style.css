@@ -46,12 +46,12 @@ body {
 }
 
 .side-navbar:hover .side-nav-button {
-    color: black;
+    color: yellow;
     font-weight: bolder;
 }
 
 .side-navbar-ul {
-    margin-left: 23px;
+    margin-left: 65px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -83,7 +83,7 @@ body {
 } */
 
 .side-navbar-ul > li:hover > a {
-    color: rgb(0, 0, 0);
+    color: yellow;
 }
 
 .nav-genre {
@@ -123,6 +123,10 @@ body {
     margin-bottom: 10px;
 }
 
+.dropdown li {
+    transition: all ease 0.3s;
+}
+
 .dropdown li:hover {
     transform: translateX(5px);
 }
@@ -135,7 +139,7 @@ body {
 }
 
 .dropdown li:hover a{
-    color: rgb(0, 0, 0);
+    color: yellow;
 }
 
 #nav {
@@ -161,7 +165,7 @@ body {
 
 .image-logo {
     cursor: pointer;
-    margin-left: 75px;
+    margin-left: 70px;
     /* border: 1px solid red; */
 }
 
@@ -171,9 +175,14 @@ body {
 }
 
 .image-search {
-    margin-right: 40px;
+    margin-right: 20px;
     cursor: pointer;
+    transition: all ease 0.3s;
     /* border: 1px solid red; */
+}
+
+.image-search:hover {
+    transform: scale(1.2);
 }
 
 #main {
@@ -398,4 +407,70 @@ body {
 .movies-card a {
     text-decoration: none;
     color: white;
+}
+
+#footer {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; */
+    background-color: black;
+    border-top: 0.5px solid rgb(114, 2, 2);
+    padding: 0px 0px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+#footer h3 {
+    margin-bottom: 20px;
+}
+
+#footer p, .footer-container a {
+    transition: all ease 0.3s;
+}
+
+#footer p:hover, .footer-container a:hover {
+    color: red;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 25px 200px;
+    gap: 10px;
+    /* border: 2px solid red; */
+}
+
+.footer-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-left, .footer-mid, .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 2px solid red; */
+}
+
+.footer-left, .footer-right {
+    position: relative;
+    top: 30px
+}
+
+.no-click {
+    cursor: default;
+}
+
+.movies-holic-tag {
+    position: relative;
+    width: fit-content;
+    cursor: default;
+    bottom: -15px;
+    left: 20px;
+    font-size: small;
 }

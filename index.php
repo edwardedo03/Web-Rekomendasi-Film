@@ -2,7 +2,7 @@
     include("connect_db.php");
 
     function get_film_for_home($conn) {
-        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies LIMIT 54");
+        $query = mysqli_query($conn, "SELECT * FROM top_10000_movies LIMIT 108");
         
         if(mysqli_num_rows($query) > 0) {
             return $query;
@@ -40,6 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies Holic</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/image/logo-remove-bg.png">
 </head>
 <body>
     <div class="side-navbar">
@@ -70,7 +71,7 @@
         <div></div>
         
         <div class="image-logo">
-            <a href="index.php"><img src="assets/image/logo-remove-bg.png" width="180px" alt="Film-Holic"></a>
+            <a href="#main"><img src="assets/image/logo-remove-bg.png" width="180px" alt="Film-Holic"></a>
         </div>
 
         <div class="image-search">
@@ -81,7 +82,6 @@
     <section id="main">
         <h3>TOP MOVIES</h3>
         <div class="marquee-main-container">
-            <!-- nanti tambahin code php supaya otomatis muncul, ga satu satu nambahin foto-->
             <div class="marquee">
 
                 <?php
@@ -91,7 +91,7 @@
 
                 ?>
                 
-                <a href="">
+                <a href="film_detail.php?id=<?php echo $row['id']?>">
                     <div class="image-wrapper">
                         <img src="<?php echo $row['image_url']?>" alt="">
                         <div class="image-text">
@@ -119,11 +119,12 @@
             ?>
 
             <div class="movies-card">
-                <a href="">
+                <a href="film_detail.php?id=<?php echo $row['id']?>">
                     <img src="<?php echo $row['image_url'] ?>" alt="film-image">
                 </a>
+
                 <div class="movie-info">
-                    <a href=""><p class="movie-title"><?php echo $row['title']?></p></a>
+                    <a href="film_detail.php?id=<?php echo $row['id']?>"><p class="movie-title"><?php echo $row['title']?></p></a>
                     <p class="movie-genre"><?php echo cleaning_genre($row) ?></p>
                     <p>⭐ <?php echo $row['vote_average'] ?></p>
                 </div>
@@ -132,6 +133,32 @@
             <?php } ?>
         </div>
     </section>
+
+    <footer id="footer">
+        <div class="footer-container">
+
+            <div class="footer-left">
+                <h3>Navigation</h3>
+                <p><a href="#main">Home</a></p>
+                <p><a href="#second-section">Movies</a></p>
+                <p><a href="#main">Genre</a></p>
+            </div>
+
+            <div class="footer-mid">
+                <a href="#main"><img src="assets/image/logo-remove-bg.png" width="180px" alt="Film-Holic"></a>
+                <h2>Movies Holic</h2>
+                <p class="no-click">Film Listing & More</p>
+                <p class="movies-holic-tag">© 2026 Movies Holic</p>
+            </div>
+
+            <div class="footer-right">
+                <h3>Follow Us</h3>
+                <p><a href="https://github.com/edwardedo03/Web-Rekomendasi-Film.git">GitHub</a></p>
+                <p><a href="">Instagram</a></p>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 </html>
